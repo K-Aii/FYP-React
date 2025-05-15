@@ -15,12 +15,11 @@ function App(){
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
-    const cleanCode = formJson.codes.replace(/\s/g, "");
-    console.log(cleanCode);
+    console.log(formJson.codes);
     
     const iframe = document.querySelector("iframe");
     if(iframe){
-      iframe.contentWindow.postMessage({type: "BROWSER_TO_UNITY", value: cleanCode}, "*");
+      iframe.contentWindow.postMessage({type: "BROWSER_TO_UNITY", value: formJson.codes}, "*");
     }
   }
 
@@ -49,9 +48,7 @@ function App(){
 
       <div className="panel">
         <div className="objects">
-          {/* <button disabled>Objects</button> */}
-          <p> Binary Buddy </p>
-          <p> Glitch </p>
+          <button disabled>Objects</button>
           <p>{pyoutput}</p>
         </div>
         <form method="post" onSubmit={handleSubmit}>
@@ -60,7 +57,7 @@ function App(){
             setPyprompt(e.target.value);
           }}/>
           <button className="exe" type="submit">&gt;&gt; Execute &lt;&lt;</button>
-          {/* <button className="exe2" onClick={pythonExe}>python</button> */}
+          <button className="exe2" onClick={pythonExe}>python</button>
         </form>
       </div>
       
