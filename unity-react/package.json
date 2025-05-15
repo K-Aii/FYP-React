@@ -1,5 +1,6 @@
 {
   "name": "unity-react",
+  "homepage": "https://k-aii.github.io/SD4981-TheValidators/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,9 +8,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run dev",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "pyodide": "^0.27.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
